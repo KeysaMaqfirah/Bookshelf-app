@@ -1,0 +1,448 @@
+/* warna dan efek */
+:root {
+    --primary-color: #2e86de;
+    --secondary-color: #55efc4;
+    --dark-color: #2c3e50;
+    --light-color: #f5f6fa;
+    --success-color: #5cb85c;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary-color), #1e3799);
+    color: white;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+header h1 {
+    font-weight: 300;
+    font-size: 2.5rem;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Gaya untuk setiap section */
+section {
+    margin-bottom: 2rem;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+/* Efek hover untuk section */
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(10, 122, 213, 0.428);
+}
+
+h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+label {
+    font-weight: 500;
+    color: var(--dark-color);
+    margin-bottom: 0.3rem;
+}
+
+/* Gaya untuk input teks dan angka */
+input[type="text"],
+input[type="number"] {
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: var(--transition);
+    width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(46, 134, 222, 0.2);
+}
+
+/* Gaya untuk checkbox */
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Ukuran dan warna checkbox */
+input[type="checkbox"] {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-color);
+}
+
+/* Tulisan di dalam span menjadi bold*/
+#bookFormSubmit span {
+    font-weight: bold;
+}
+
+/* Gaya untuk semua tombol */
+.btn, button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+    text-align: center;
+}
+
+/* Efek hover pada tombol */
+.btn:hover, button:hover {
+    background-color: #1c71c7;
+    transform: translateY(-2px);
+}
+
+/* Variasi warna pada tombol */
+.btn-primary {
+    background-color: var(--primary-color);
+}
+
+.btn-complete {
+    background-color: var(--success-color);
+}
+
+.btn-incomplete {
+    background-color: var(--warning-color);
+}
+
+.btn-delete {
+    background-color: var(--danger-color);
+}
+
+.btn-edit {
+    background-color: var(--dark-color);
+}
+
+.btn-cancel {
+    background-color: #95a5a6;
+}
+
+/* Gaya untuk Pencarian Buku  */
+#searchBook {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+#searchBook label {
+    margin-bottom: 0;
+    flex: 0 0 auto;
+}
+
+#searchBook input {
+    flex: 1;
+    min-width: 200px;
+}
+
+#searchSubmit {
+    flex: 0 0 auto;
+}
+
+/* Gaya untuk daftar buku */
+#incompleteBookList,
+#completeBookList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Pesan jika tidak ada buku */
+.no-books-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* Gaya untuk item buku  */
+.book-item {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 5px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Garis atas warna gradasi pada item buku */
+.book-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+/* Efek hover pada item buku */
+.book-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(10, 241, 202, 0.23);
+}
+
+/* Judul Buku */
+.book-item h3 {
+    margin: 0 0 1rem 0;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+/* Deskripsi Buku */
+.book-item p {
+    margin: 0 0 0.8rem 0;
+    color: #555;
+}
+
+/* Gaya untuk tombol dalam item buku */
+.book-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+}
+
+/* Ukuran dan gaya tombol */
+.book-buttons button {
+    flex: 1;
+    min-width: calc(50% - 0.3rem);
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+/* Efek highlight untuk hasil pencarian */
+.highlight {
+    animation: pulse 2s infinite;
+    border: 2px solid var(--warning-color);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(243, 156, 18, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(243, 156, 18, 0);
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease;
+}
+
+.modal-content h3 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+/* Notifikasi Pop-up */
+.notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    animation: slideInNotification 0.3s ease forwards;
+    max-width: 400px;
+}
+
+/* Efek animasi notifikasi menghilang */
+.notification.hide {
+    animation: slideOutNotification 0.5s ease forwards;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInNotification {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutNotification {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* Menyesuaikan tata letak formulir untuk kotak centang "Selesai dibaca" */
+#bookForm .checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Desain responsif */
+@media (max-width: 900px) {
+    #incompleteBookList,
+    #completeBookList {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+/* Untuk layar dengan lebar maksimal 600px */
+@media (max-width: 600px) {
+    main {
+        padding: 1rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
+    
+/* Menyesuaikan tata letak daftar buku agar menjadi satu kolom */
+    #incompleteBookList,
+    #completeBookList {
+        grid-template-columns: 1fr;
+    }
+    
+    .book-buttons {
+        flex-direction: column;
+    }
+    
+    .book-buttons button {
+        width: 100%;
+    }
+    
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+    
+/* Menyesuaikan posisi notifikasi agar lebih fleksibel di layar kecil */
+    .notification {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        max-width: none;
+    }
+}
+
+/* Untuk layar dengan lebar maksimal 400px */
+@media (max-width: 400px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .book-item {
+        padding: 1rem;
+    }
+}
